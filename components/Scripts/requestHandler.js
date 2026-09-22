@@ -31,7 +31,7 @@ function ItP(exp) {
         else if (c === '(') stk.push(c);
         else if (c === ')') {
             while (!stk.isEmpty() && stk.peek() !== '(') {
-                result += stk.pop();
+                result += stk.pop() + " ";
             }
             stk.pop();
         } else {
@@ -40,13 +40,13 @@ function ItP(exp) {
                 stk.peek() !== '(' &&
                 prec(stk.peek()) >= prec(c)
             ) {
-                result += stk.pop();
+                result += stk.pop() + " ";
             }
             stk.push(c);
         }
     }
 
-    while (!stk.isEmpty()) result += stk.pop();
+    while (!stk.isEmpty()) result += stk.pop() + " ";
     return result;
 }
 
